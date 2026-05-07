@@ -6,6 +6,7 @@
   --color-klvin-blue:     hsl(194 100% 42%);
   --color-klvin-dark:     hsl(217 19% 3%);
   --color-klvin-charcoal: hsl(217 15% 8%);
+  --color-klvin-card:     hsl(217 17% 5%);
   --color-klvin-white:    #FFFFFF;
   --color-klvin-muted:    hsl(0 0% 65%);
   --color-klvin-border:   hsl(217 15% 15%);
@@ -15,14 +16,140 @@
 }
 
 @layer base {
+  :root {
+    --shadow-glow-orange: 0 0 40px hsl(33 95% 56% / 0.3);
+    --shadow-glow-blue:   0 0 40px hsl(194 100% 42% / 0.3);
+    --shadow-card:        0 10px 40px hsl(0 0% 0% / 0.5);
+    --shadow-elevated:    0 20px 60px hsl(0 0% 0% / 0.6);
+  }
+
   body {
     background-color: hsl(217 19% 3%);
     color: white;
     font-family: Inter, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: "Space Grotesk", Inter, system-ui, sans-serif;
     color: white;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: hsl(217 19% 3%); }
+  ::-webkit-scrollbar-thumb { background: hsl(33 95% 56% / 0.3); border-radius: 5px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(33 95% 56% / 0.5); }
+}
+
+@layer components {
+  .gradient-text {
+    background: linear-gradient(to right, hsl(33 95% 56%), hsl(194 100% 42%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .glow-orange {
+    box-shadow: var(--shadow-glow-orange);
+  }
+
+  .glow-blue {
+    box-shadow: var(--shadow-glow-blue);
+  }
+
+  .card-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .hero-title {
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+    font-size: clamp(2.8rem, 8vw, 7rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .section-title {
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+    font-size: clamp(2rem, 5vw, 3.75rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .subsection-title {
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: hsl(0 0% 70%);
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover,
+  .nav-link[data-active="true"] {
+    color: hsl(33 95% 56%);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    background-color: hsl(33 95% 56%);
+    color: hsl(217 19% 3%);
+    transition: all 0.2s;
+    box-shadow: var(--shadow-glow-orange);
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+    transform: scale(1.03);
+  }
+
+  .btn-outline-blue {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: "Space Grotesk", Inter, system-ui, sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(194 100% 42%);
+    color: hsl(194 100% 42%);
+    background: transparent;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-blue:hover {
+    box-shadow: var(--shadow-glow-blue);
+    transform: scale(1.03);
+  }
+
+  .card-klvin {
+    background-color: hsl(217 17% 5%);
+    border: 1px solid hsl(217 15% 15%);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .card-klvin:hover {
+    border-color: hsl(33 95% 56% / 0.5);
+    box-shadow: var(--shadow-card);
   }
 }
