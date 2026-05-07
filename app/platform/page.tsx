@@ -27,7 +27,6 @@ const softwareSchema = {
   offers: {
     "@type": "Offer",
     url: "https://klvin.ai/contact/",
-    priceCurrency: "INR",
   },
   publisher: {
     "@type": "Organization",

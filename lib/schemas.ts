@@ -91,6 +91,7 @@ export function buildArticleSchema(opts: {
   headline: string;
   image: string;
   datePublished: string;
+  dateModified?: string;
   url: string;
 }) {
   return {
@@ -99,6 +100,7 @@ export function buildArticleSchema(opts: {
     headline: opts.headline,
     image: "https://klvin.ai" + opts.image,
     datePublished: opts.datePublished,
+    dateModified: opts.dateModified ?? opts.datePublished,
     author: { "@type": "Organization", name: "KLVIN Technology Labs" },
     publisher: {
       "@type": "Organization",
