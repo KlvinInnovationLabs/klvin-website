@@ -69,6 +69,11 @@ for (const slug of productSlugs) {
   sections.push("---\n");
 }
 
+if (!fs.existsSync(outDir)) {
+  console.error("build-llms-full.mjs: out/ directory not found — was 'next build' run first?");
+  process.exit(1);
+}
+
 const content = sections.join("\n");
 const outPath = path.join(outDir, "llms-full.txt");
 fs.writeFileSync(outPath, content, "utf8");
