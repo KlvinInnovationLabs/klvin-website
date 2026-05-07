@@ -37,7 +37,14 @@ jobs:
         run: pnpm build
         env:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: production
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
+
+      - name: Verify build output is not empty SPA shell
+        run: |
+          grep -q "Industrial AI that reads your factory floor" out/index.html \
+            || (echo "FAIL: homepage is an empty SPA shell — aborting preview deploy" && exit 1)
+          test -f out/sitemap.xml || (echo "FAIL: sitemap missing" && exit 1)
+          echo "Pre-deploy verification passed"
 
       - name: Deploy preview to subdirectory
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -46,7 +53,7 @@ jobs:
           username:              ${{ secrets.HOSTINGER_FTP_USER }}
           password:              ${{ secrets.HOSTINGER_FTP_PASSWORD }}
           local-dir:             ./out/
-          server-dir:            "/home/u404968322/domains/klvin.ai/public_html/${{ github.event.inputs.subdir }}/"
+          server-dir:            ${{ secrets.HOSTINGER_PREVIEW_BASE_PATH }}${{ github.event.inputs.subdir }}/
           dangerous-clean-slate: false
           protocol:              ftps
           port:                  21

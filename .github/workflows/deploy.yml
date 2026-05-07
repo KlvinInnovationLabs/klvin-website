@@ -25,7 +25,7 @@ jobs:
         run: pnpm build
         env:
           SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
-          SANITY_DATASET: production
+          SANITY_DATASET: ${{ secrets.SANITY_DATASET }}
 
       - name: Verify critical pages are not SPA shells
         run: |
