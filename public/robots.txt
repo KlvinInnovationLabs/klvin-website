@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /studio/
+
+# AI search crawlers — all permitted (GEO / LLM citation ranking)
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://klvin.ai/sitemap.xml

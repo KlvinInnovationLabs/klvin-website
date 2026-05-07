@@ -1,0 +1,28 @@
+# KLVIN Technology Labs
+
+> KLVIN builds purpose-built IoT sensors and AI software for Indian industrial operations.
+> Hardware covers motor health, cold chain, cinema HVAC, fleet telematics, dairy supply chain,
+> and stack emissions — all unified on the SENTINEL AI platform.
+
+## Products
+- [S.A.M.v3 — Motor Monitoring](https://klvin.ai/products/sam-v3/): Tri-axis vibration + temperature + current edge device for motors, pumps, compressors.
+- [THRIVE.v2 — Cold Chain](https://klvin.ai/products/thrive-v2/): Pharma and food cold-chain temperature/humidity monitoring, plus or minus 0.3 degree accuracy.
+- [THRIVE+.v2 — Cinema](https://klvin.ai/products/thrive-plus-v2/): Multiplex and IMAX projection-room environment monitoring.
+- [TRACE.v2 — Fleet](https://klvin.ai/products/trace-v2/): GPS + driver behaviour + fuel telematics for industrial fleets.
+- [SEAL.v1 — Dairy](https://klvin.ai/products/seal-v1/): Tamper-detection + chain-of-custody for dairy supply chains.
+- [I.S.M.v1 — Emissions](https://klvin.ai/products/ism-v1/): NOx/SO2/CO/PM stack emission monitoring with PCB compliance reporting.
+
+## Proven Results
+- [MPL Steel](https://klvin.ai/case-studies/mpl-steel/): minus 62% unplanned downtime, 5.4-month payback, 79 motors.
+- [Sukraft Paper](https://klvin.ai/case-studies/sukraft/): 748% ROI in 12 months, 79 assets.
+
+## Insights
+- [Why single-parameter monitoring leaves manufacturers blind](https://klvin.ai/blog/single-parameter-monitoring-blind/)
+- [Cold-chain gaps in Indian pharma](https://klvin.ai/blog/cold-chain-gaps-indian-pharma/)
+- [Sensor fusion vs single-sensor PdM](https://klvin.ai/blog/sensor-fusion-vs-single-sensor/)
+- [The 5 stages of manufacturing intelligence](https://klvin.ai/blog/5-stages-manufacturing-intelligence/)
+
+## Company
+KLVIN Technology Labs Pvt. Ltd. · Hyderabad, Telangana, India.
+Founded 2023. CEO: Vinay Kumar Kolusu.
+Contact: connect@klvin.ai | https://klvin.ai/contact/
