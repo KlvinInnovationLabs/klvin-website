@@ -9,7 +9,7 @@ export const sanityClient = createClient({
 
 export type SanityPost = {
   title: string; slug: string; description: string;
-  publishedAt: string; author: string; heroUrl: string;
+  publishedAt: string; author: string; heroUrl: string | null;
   body?: unknown;
   faqs?: Array<{ q: string; a: string }>;
   relatedProduct?: string; keywords?: string[];
@@ -18,7 +18,7 @@ export type SanityPost = {
 export type SanityCaseStudy = {
   title: string; slug: string; description: string;
   customer: string; sector: string; hub: string;
-  h1: string; sub: string; heroUrl: string;
+  h1: string; sub: string; heroUrl: string | null;
   challenge?: string; approach?: string;
   results?: Array<{ metric: string; value: string; unit?: string }>;
   quote?: { text: string; author: string; role: string };
