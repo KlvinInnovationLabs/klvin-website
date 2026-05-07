@@ -55,7 +55,11 @@ export async function getAllCaseStudies(): Promise<SanityCaseStudy[]> {
 
 export async function getCaseStudy(slug: string): Promise<SanityCaseStudy | null> {
   return sanityClient.fetch(
-    `*[_type == "caseStudy" && slug.current == $slug][0]`,
+    `*[_type == "caseStudy" && slug.current == $slug][0] {
+       title, "slug": slug.current, description, customer, sector, hub,
+       h1, sub, "heroUrl": hero.asset->url, challenge, approach,
+       results, quote, relatedProduct, publishedAt
+     }`,
     { slug }
   );
 }

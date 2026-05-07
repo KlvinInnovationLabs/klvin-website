@@ -6,7 +6,7 @@ import caseStudy from "./schemaTypes/caseStudy";
 export default defineConfig({
   name: "default",
   title: "KLVIN Website",
-  projectId: process.env.SANITY_PROJECT_ID ?? "",
+  projectId: process.env.SANITY_PROJECT_ID!,
   dataset: "production",
   plugins: [structureTool()],
   schema: {
