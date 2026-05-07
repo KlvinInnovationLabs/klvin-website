@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "Six purpose-built edge devices: motor monitoring, cold chain, cinema HVAC, fleet telematics, dairy tamper detection, and stack emissions — all on SENTINEL.",
   alternates: { canonical: "https://klvin.ai/products/" },
+  openGraph: {
+    title: "Industrial IoT Sensors & Edge Devices | KLVIN Products",
+    description:
+      "Six purpose-built edge devices: motor monitoring, cold chain, cinema HVAC, fleet telematics, dairy tamper detection, and stack emissions — all on SENTINEL.",
+    url: "https://klvin.ai/products/",
+    type: "website",
+  },
 };
 
 export default function ProductsPage() {

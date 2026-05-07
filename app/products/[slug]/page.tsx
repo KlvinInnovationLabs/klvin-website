@@ -45,7 +45,7 @@ export default async function ProductPage({
 
   const ld = [
     buildProductSchema(p),
-    buildFaqSchema(p.faqs),
+    ...(p.faqs.length > 0 ? [buildFaqSchema(p.faqs)] : []),
     buildBreadcrumbSchema([
       { name: "Home", url: "https://klvin.ai/" },
       { name: "Products", url: "https://klvin.ai/products/" },
@@ -60,9 +60,9 @@ export default async function ProductPage({
         {/* Breadcrumb */}
         <nav className="text-sm text-klvin-muted mb-8" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-klvin-blue transition-colors">Home</Link>
-          {" › "}
+          <span aria-hidden="true"> › </span>
           <Link href="/products" className="hover:text-klvin-blue transition-colors">Products</Link>
-          {" › "}
+          <span aria-hidden="true"> › </span>
           <span className="text-white">{p.device}</span>
         </nav>
 
