@@ -57,7 +57,8 @@ for (const slug of productSlugs) {
   if (faqMatches.length > 0) {
     sections.push("\nFrequently Asked Questions:\n");
     for (const m of faqMatches) {
-      const q = m[1].replace(/<[^>]+>/g, "").trim();
+      // Strip all tags (including the nested +<span>), then trim trailing non-question chars
+      const q = m[1].replace(/<[^>]+>/g, "").trim().replace(/\+\s*$/, "").trim();
       const a = m[2].replace(/<[^>]+>/g, "").trim();
       if (q && a && q.endsWith("?")) {
         sections.push(`Q: ${q}`);
