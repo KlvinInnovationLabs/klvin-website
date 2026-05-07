@@ -1,0 +1,52 @@
+name: Deploy Preview Branch
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: "Branch to preview (e.g. design/version-a)"
+        required: true
+        type: string
+      subdir:
+        description: "Hostinger subdirectory (e.g. staging, version-a, version-b)"
+        required: true
+        default: "staging"
+        type: string
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+        env:
+          SANITY_PROJECT_ID: ${{ secrets.SANITY_PROJECT_ID }}
+          SANITY_DATASET: production
+
+      - name: Deploy preview to subdirectory
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:                ${{ secrets.HOSTINGER_FTP_HOST }}
+          username:              ${{ secrets.HOSTINGER_FTP_USER }}
+          password:              ${{ secrets.HOSTINGER_FTP_PASSWORD }}
+          local-dir:             ./out/
+          server-dir:            "/home/u404968322/domains/klvin.ai/public_html/${{ github.event.inputs.subdir }}/"
+          dangerous-clean-slate: false
+          protocol:              ftps
+          port:                  21
